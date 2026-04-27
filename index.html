@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Repair-Lab | מעבדת מחשבים מקצועית לתיקון מחשבים ניידים ונייחים</title>
+  <meta name="description" content="Repair-Lab היא מעבדת מחשבים מקצועית לתיקון מחשבים ניידים ונייחים, החלפת מסכים, תיקוני חומרה, הרחבת זיכרון ושירות איסוף והחזרה.">
+
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Repair-Lab | מעבדת מחשבים מקצועית">
+  <meta property="og:description" content="תיקון מחשבים ניידים ונייחים, החלפת חלקים, תיקוני אלקטרוניקה ברמת הרכיב ושירות מקצועי בגובה העיניים.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #071633;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --text: #172033;
+      --muted: #526178;
+      --line: rgba(15, 23, 42, 0.12);
+      --soft-blue: #dbeafe;
+      --accent: #38bdf8;
+      --accent-dark: #0284c7;
+      --green: #25D366;
+      --shadow: 0 24px 70px rgba(7, 22, 51, 0.14);
+      --radius: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 19px;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Heebo", Arial, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 19px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus,
+    button:focus {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -80px;
+      right: 18px;
+      background: var(--white);
+      color: var(--dark);
+      padding: 12px 18px;
+      z-index: 9999;
+      border-radius: 12px;
+      font-weight: 800;
+    }
+
+    .skip-link:focus {
+      top: 14px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 22, 51, 0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--white);
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      color: var(--white);
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .main-nav a {
+      color: rgba(255, 255, 255, 0.88);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 10px 13px;
+      border-radius: 999px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .main-nav a:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+    }
+
+    .section {
+      padding: 92px 22px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 760px;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(56, 189, 248, 0.24), transparent 30%),
+        linear-gradient(145deg, #071633 0%, #0f172a 58%, #111827 100%);
+      color: var(--white);
+      padding: 96px 22px 74px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(7, 22, 51, 0.12), rgba(7, 22, 51, 0.92)),
+        url("repair-touch-screen-2.jpg") center / cover no-repeat;
+      opacity: 0.22;
+      filter: grayscale(20%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -28% -10%;
+      height: 320px;
+      background: rgba(0, 0, 0, 0.34);
+      transform: rotate(-2deg);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      gap: 34px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 9px 16px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      font-weight: 800;
+      color: #e0f2fe;
+    }
+
+    .hero h1 {
+      max-width: 940px;
+      margin: 0;
+      font-size: clamp(2.25rem, 5vw, 4.3rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      font-weight: 900;
+    }
+
+    .hero-lead {
+      max-width: 830px;
+      margin: 0;
+      color: rgba(255,255,255,0.88);
+      font-size: 1.22rem;
+      font-weight: 500;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .hero-card {
+      padding: 22px;
+      min-height: 158px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.22);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-card strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .hero-card p {
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+      font-size: 0.98rem;
+    }
+
+    .hero-strip {
+      position: relative;
+      z-index: 3;
+      max-width: 1180px;
+      margin: 58px auto 0;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .hero-strip-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.30);
+      border: 1px solid rgba(255,255,255,0.14);
+      min-height: 280px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-strip-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.88;
+      filter: saturate(0.85) contrast(1.05);
+    }
+
+    .intro-panel {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 34px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      margin-top: -46px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .intro-panel p {
+      margin: 0;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .section-title {
+      max-width: 860px;
+      margin: 0 0 34px;
+    }
+
+    .eyebrow {
+      color: var(--accent-dark);
+      font-weight: 900;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.18;
+      margin: 0;
+      color: var(--dark);
+      letter-spacing: -0.03em;
+      font-weight: 900;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      margin: 0 0 12px;
+      color: var(--dark);
+      font-weight: 900;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      margin: 0 0 8px;
+      color: var(--dark);
+      font-weight: 900;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: 0 16px 50px rgba(15, 23, 42, 0.07);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent), #2563eb);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 66px rgba(15, 23, 42, 0.13);
+    }
+
+    .service-card p {
+      color: var(--muted);
+    }
+
+    .service-card a {
+      color: #075985;
+      font-weight: 900;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 5px;
+    }
+
+    .image-band {
+      background: var(--dark);
+      color: var(--white);
+      padding: 76px 22px;
+    }
+
+    .image-band h2 {
+      color: var(--white);
+    }
+
+    .image-band p {
+      color: rgba(255,255,255,0.78);
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .image-card {
+      overflow: hidden;
+      border-radius: var(--radius);
+      min-height: 320px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .tips {
+      background: var(--white);
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .tip {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .tip-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--soft-blue);
+      color: #075985;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .delivery-box {
+      background:
+        radial-gradient(circle at 90% 0%, rgba(56, 189, 248, 0.20), transparent 32%),
+        linear-gradient(135deg, #071633, #0f172a);
+      border-radius: 34px;
+      padding: 42px;
+      color: var(--white);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .delivery-box h2 {
+      color: var(--white);
+    }
+
+    .delivery-box p {
+      color: rgba(255,255,255,0.82);
+    }
+
+    .delivery-pill {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      color: #e0f2fe;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .rating-section {
+      background: var(--light);
+    }
+
+    .rating-card {
+      background: var(--white);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .score-box {
+      background: linear-gradient(160deg, var(--navy), var(--dark));
+      color: var(--white);
+      border-radius: 30px;
+      padding: 32px;
+      position: sticky;
+      top: 100px;
+    }
+
+    .score {
+      font-size: 4rem;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      margin-bottom: 10px;
+    }
+
+    .stars {
+      color: #fbbf24;
+      font-size: 1.45rem;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    .score-box p {
+      color: rgba(255,255,255,0.82);
+      margin: 0;
+    }
+
+    .reviews-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .review {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .review p {
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+
+    .review strong {
+      color: var(--dark);
+      font-weight: 900;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .about-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 18px 56px rgba(15, 23, 42, 0.08);
+    }
+
+    .mini-list {
+      list-style: none;
+      padding: 0;
+      margin: 22px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .mini-list li {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      font-weight: 700;
+    }
+
+    .facebook-box {
+      margin-top: 28px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 16px 50px rgba(15, 23, 42, 0.07);
+    }
+
+    .facebook-box a {
+      background: #1877f2;
+      color: var(--white);
+      text-decoration: none;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .site-footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 72px 22px 28px;
+    }
+
+    .footer-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 1fr 1.1fr;
+      gap: 26px;
+    }
+
+    .footer-col h3 {
+      color: var(--white);
+      margin-bottom: 14px;
+      font-size: 1.15rem;
+    }
+
+    .footer-col p,
+    .footer-col li {
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-actions {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .footer-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 12px 18px;
+    }
+
+    .call-btn {
+      background: var(--accent);
+      color: #00111d;
+    }
+
+    .wa-btn {
+      background: var(--green);
+      color: #04140a;
+    }
+
+    .privacy {
+      max-width: 1180px;
+      margin: 36px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.16);
+      color: rgba(255,255,255,0.76);
+    }
+
+    .privacy a {
+      color: #bfdbfe;
+      font-weight: 800;
+    }
+
+    .credits {
+      max-width: 1180px;
+      margin: 24px auto 0;
+      color: rgba(255,255,255,0.76);
+      display: grid;
+      gap: 8px;
+    }
+
+    .credits a {
+      color: #bfdbfe;
+      font-weight: 900;
+    }
+
+    .floating-actions {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 1100;
+      display: grid;
+      gap: 12px;
+    }
+
+    .float-btn {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.24);
+    }
+
+    .float-call {
+      background: var(--accent);
+      color: #00111d;
+    }
+
+    .float-wa {
+      background: var(--green);
+      color: #04140a;
+    }
+
+    .float-btn svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    @media (max-width: 980px) {
+      .nav-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      .main-nav {
+        position: absolute;
+        top: 78px;
+        right: 18px;
+        left: 18px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+        background: #071633;
+        border: 1px solid rgba(255,255,255,0.16);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+      }
+
+      .main-nav.is-open {
+        display: flex;
+      }
+
+      .main-nav a {
+        padding: 14px 16px;
+        border-radius: 14px;
+      }
+
+      .hero-grid,
+      .services-grid,
+      .tips-grid,
+      .footer-grid,
+      .about-layout,
+      .rating-card,
+      .delivery-box,
+      .hero-strip,
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .score-box {
+        position: static;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 72px;
+      }
+
+      .intro-panel {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      html {
+        font-size: 18px;
+      }
+
+      .section {
+        padding: 66px 18px;
+      }
+
+      .header-inner {
+        padding: 14px 18px;
+      }
+
+      .hero {
+        padding: 62px 18px 52px;
+      }
+
+      .hero-card,
+      .service-card,
+      .about-card,
+      .rating-card,
+      .delivery-box {
+        padding: 24px;
+      }
+
+      .facebook-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .floating-actions {
+        left: 14px;
+        bottom: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main" title="דילוג לתוכן המרכזי">דילוג לתוכן המרכזי</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="#top" title="Repair-Lab - חזרה לראש הדף">Repair<span>-Lab</span></a>
+
+      <button class="nav-toggle" type="button" aria-label="פתיחת ניווט" aria-expanded="false" aria-controls="main-navigation">
+        ☰
+      </button>
+
+      <nav id="main-navigation" class="main-nav" aria-label="ניווט מרכזי">
+        <a href="#about" title="מעבר אל אזור המעבדה">המעבדה</a>
+        <a href="#services" title="מעבר אל אזור השירותים">שירותים</a>
+        <a href="#tips" title="מעבר אל אזור טיפים לשמירה על המחשב">טיפים</a>
+        <a href="#shipping" title="מעבר אל אזור איסוף והחזרה">איסוף והחזרה</a>
+        <a href="#reviews" title="מעבר אל אזור המלצות ודירוג">המלצות</a>
+        <a href="#contact" title="מעבר אל אזור יצירת קשר">יצירת קשר</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <span class="hero-badge">מעבדת מחשבים מקצועית • ניסיון, שקיפות ושירות</span>
+
+        <h1 id="hero-title">מעבדת מחשבים מקצועית לתיקון מחשבים ניידים ונייחים</h1>
+
+        <p class="hero-lead">
+          תיקון מחשבים ניידים, החלפת חלקים, אבחון תקלות ושירות משלוחים ארצי — עם דגש על מקצועיות,
+          שקיפות מלאה ושירות ברור בגובה העיניים. Repair-Lab פועלת כמעבדה טכנית מנוסה, שמבינה שמחשב תקול
+          הוא לא רק מוצר שצריך לתקן, אלא כלי עבודה, לימודים, תקשורת ויום־יום שחייב לחזור לפעילות תקינה.
+        </p>
+
+        <div class="hero-grid" aria-label="יתרונות מרכזיים של ריפר לאב">
+          <article class="hero-card">
+            <strong>מעל 25 שנות ניסיון</strong>
+            <p>שנים רבות של עבודה עם מחשבים ניידים, נייחים, רכיבים, מסכים, תקלות חומרה ואבחון מקצועי.</p>
+          </article>
+
+          <article class="hero-card">
+            <strong>תיקוני אלקטרוניקה ברמת הרכיב</strong>
+            <p>ידע וציוד מתקדם שמאפשרים לבדוק תקלות עמוקות יותר, מעבר להחלפה בסיסית של חלקים.</p>
+          </article>
+
+          <article class="hero-card">
+            <strong>נותני שירות ליבואני מחשבים</strong>
+            <p>נבחרנו כנותני השירות למחשבים המיובאים לישראל על ידי חברת אולטרייד.</p>
+          </article>
+
+          <article class="hero-card">
+            <strong>שירות לרשתות מוכרות</strong>
+            <p>נבחרנו כנותני השירות למחשבים המיובאים על ידי רשת אופיס דיפו.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="hero-strip" aria-label="תמונות מעבדה ומחשבים">
+        <figure class="hero-strip-card">
+          <img src="Replacement-screen-for-DELL-laptop.jpg" alt="החלפת מסך למחשב נייד במעבדה מקצועית" loading="eager">
+        </figure>
+        <figure class="hero-strip-card">
+          <img src="Dark-screen-on-laptop.jpg" alt="מחשב נייד על שולחן עבודה לפני בדיקת תקלה במסך" loading="eager">
+        </figure>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <div class="intro-panel">
+          <p>
+            Repair-Lab היא מעבדה לתיקון מחשבים ניידים ונייחים שמטפלת בתקלות נפוצות ומורכבות כאחד:
+            מסכים שבורים, מסכים מרצדים, מחשבים שאינם נדלקים, תקלות זיכרון, בעיות אחסון, נזקי נוזלים,
+            תקלות טעינה, רכיבים תקולים ושדרוגים שמטרתם להאריך את חיי המחשב. הגישה המקצועית של המעבדה
+            מבוססת על אבחון מסודר לפני ביצוע תיקון, הסבר ברור ללקוח ובחירה בפתרון שמתאים למצב המחשב,
+            לאופי התקלה ולכדאיות התיקון.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">השירותים שלנו</span>
+          <h2 id="services-title">ארבעה תחומי תיקון מרכזיים — עם הסבר ברור על התקלה והטיפול</h2>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <h3>החלפת מסך למחשב נייד</h3>
+            <p>
+              מסך של מחשב נייד עלול להישבר מנפילה, לחץ בתיק, סגירה על חפץ קטן, מכה ישירה או בלאי של
+              צירי המסך והחיבורים הפנימיים. לפעמים הבעיה נראית כמו שבר ברור, ולפעמים היא מופיעה כפסים,
+              כתמים, ריצוד, תאורה חלשה או מסך שנדלק רק בזווית מסוימת.
+            </p>
+            <p>
+              במקרים כאלה חשוב לבצע אבחון כדי להבין אם מקור התקלה הוא בפאנל המסך עצמו, בכבל המסך,
+              בכרטיס הגרפי או בחיבור הפנימי. כאשר נדרשת <a href="https://www.repair-lab.co.il/%D7%94%D7%97%D7%9C%D7%A4%D7%AA_%D7%9E%D7%A1%D7%9A_%D7%9C%D7%9E%D7%97%D7%A9%D7%91_%D7%A0%D7%99%D7%99%D7%93/" title="מידע נוסף על החלפת מסך למחשב נייד באתר Repair-Lab">החלפת מסך למחשב נייד</a>,
+              העבודה צריכה להתבצע עם מסך מתאים לדגם, פירוק נקי והרכבה מדויקת כדי למנוע לחץ מיותר על המסגרת והצירים.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>תיקון מחשבים ניידים שלא נדלקים או נתקעים</h3>
+            <p>
+              מחשב נייד שאינו נדלק, נתקע באמצע עבודה או נכבה ללא סיבה יכול לסבול ממגוון תקלות:
+              ספק כוח לא תקין, שקע טעינה פגום, סוללה חלשה, קצר בלוח, התחממות, תקלה בזיכרון או בעיה
+              בכונן האחסון. לא תמיד ניתן להבין מה מקור התקלה לפי הסימן הראשון, ולכן חשוב לא לקפוץ
+              ישר למסקנה שהמחשב “הלך”.
+            </p>
+            <p>
+              אבחון מקצועי בודק את שרשרת החשמל, רכיבי הלוח, הזיכרון, האחסון ומערכת הקירור. אם מדובר
+              בתקלה פשוטה, ניתן לטפל בה באמצעות החלפת רכיב או ניקוי מערכת. אם מדובר בתקלה עמוקה יותר,
+              נדרש ידע בתיקוני אלקטרוניקה ברמת הרכיב — כלומר בדיקה וטיפול ברכיבים הקטנים שעל גבי הלוח.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>הרחבת זיכרון למחשב נייד</h3>
+            <p>
+              מחשב איטי לא תמיד דורש החלפה. במקרים רבים, כאשר המחשב מתקשה לפתוח כמה תוכנות יחד,
+              הדפדפן עובד לאט, קבצים כבדים נטענים באיטיות או מערכת ההפעלה מגיבה בעיכוב, ייתכן שהבעיה
+              קשורה לכמות זיכרון העבודה. זיכרון עבודה, או RAM, הוא הרכיב שמאפשר למחשב להחזיק פעולות פתוחות בזמן אמת.
+            </p>
+            <p>
+              הרחבת זיכרון מתבצעת רק לאחר בדיקה של דגם המחשב, סוג הזיכרון הנתמך, מספר החריצים הפנויים
+              והכמות המקסימלית שהמחשב יכול לקבל. שדרוג נכון יכול לשפר משמעותית את חוויית העבודה,
+              במיוחד במחשבים המשמשים ללימודים, עבודה משרדית, תוכנות גרפיות או עבודה עם הרבה לשוניות פתוחות.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>החלפת מסך מגע ללפטופ</h3>
+            <p>
+              מסך מגע במחשב נייד משלב בין תצוגה רגילה לבין שכבת מגע רגישה. תקלה במסך כזה יכולה להופיע
+              כשבר בזכוכית, מגע שאינו מגיב, תגובה לא מדויקת, ריצוד, כתמי תצוגה או מצב שבו התמונה עובדת
+              אך המגע אינו מזוהה. לעיתים התקלה נגרמת מנפילה, לחץ, חדירת נוזלים או בלאי בחיבורי המסך.
+            </p>
+            <p>
+              טיפול במסך מגע דורש זהירות גבוהה יותר ממסך רגיל, משום שיש להתאים בין סוג הפאנל, שכבת המגע,
+              הכבלים והמסגרת. במעבדה מקצועית בודקים אם ניתן להחליף רק חלק מהמערכת או שיש צורך בהחלפה מלאה,
+              תוך שמירה על מבנה המחשב ועל תקינות הצירים והחיבורים.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="image-band" aria-labelledby="lab-title">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">מעבדה, ציוד וידע מקצועי</span>
+          <h2 id="lab-title">תיקון נכון מתחיל באבחון נכון</h2>
+          <p>
+            במחשבים ניידים, תקלה אחת יכולה להיראות כמו תקלה אחרת. מסך שחור יכול להיגרם ממסך תקול,
+            מכבל פנימי, מתקלה בכרטיס הגרפי או מבעיה במערכת ההפעלה. מחשב איטי יכול להיות קשור לזיכרון,
+            לכונן אחסון, להתחממות או לתוכנות שרצות ברקע. לכן, לפני שמחליפים חלק, חשוב לבדוק את מקור הבעיה.
+          </p>
+        </div>
+
+        <div class="image-grid">
+          <figure class="image-card">
+            <img src="from web client27.4.26 repair-lab.jpeg" alt="עמדת עבודה במעבדת מחשבים מקצועית Repair-Lab" loading="lazy">
+          </figure>
+          <figure class="image-card">
+            <img src="repair-touch-screen-2.jpg" alt="תיקון מסך מגע ולוח אלקטרוני של מחשב נייד" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="tips" class="section tips" aria-labelledby="tips-title">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">טיפים לשמירה על המחשב</span>
+          <h2 id="tips-title">כמה פעולות פשוטות שיכולות להפחית תקלות במסך, במגע ובמחשב כולו</h2>
+        </div>
+
+        <div class="tips-grid">
+          <article class="tip">
+            <div class="tip-number" aria-hidden="true">01</div>
+            <h3>לא לסגור את המסך בכוח</h3>
+            <p>
+              סגירה חזקה מדי, במיוחד כאשר יש עט, כבל, אוזנייה או לכלוך בין המקלדת למסך, עלולה לגרום
+              לשבר במסך או ללחץ נקודתי שמוביל לכתמים ופסים בתצוגה.
+            </p>
+          </article>
+
+          <article class="tip">
+            <div class="tip-number" aria-hidden="true">02</div>
+            <h3>לשמור על הצירים</h3>
+            <p>
+              פתיחה מהירה מצד אחד בלבד יוצרת עומס על הצירים ועל מסגרת המסך. מומלץ לפתוח את המסך בעדינות
+              מהמרכז, במיוחד במחשבים דקים וקלים.
+            </p>
+          </article>
+
+          <article class="tip">
+            <div class="tip-number" aria-hidden="true">03</div>
+            <h3>לא לנקות מסך עם חומר חזק</h3>
+            <p>
+              חומרי ניקוי חריפים עלולים לפגוע בציפוי המסך או בשכבת המגע. עדיף להשתמש במטלית מיקרופייבר
+              ובחומר ייעודי למסכים, בכמות קטנה וללא ריסוס ישיר על המחשב.
+            </p>
+          </article>
+
+          <article class="tip">
+            <div class="tip-number" aria-hidden="true">04</div>
+            <h3>להימנע מחום ולחות</h3>
+            <p>
+              חום גבוה, שמש ישירה או לחות עלולים לפגוע בסוללה, במסך, בלוח וברכיבים פנימיים. לא מומלץ
+              להשאיר מחשב ברכב סגור או ליד חלון עם שמש חזקה.
+            </p>
+          </article>
+
+          <article class="tip">
+            <div class="tip-number" aria-hidden="true">05</div>
+            <h3>לא להתעלם מריצוד או מסך שחור</h3>
+            <p>
+              ריצוד, מסך לבן, מסך שחור או תצוגה שמופיעה ונעלמת הם סימנים שכדאי לבדוק מוקדם. לפעמים טיפול
+              בזמן מונע החמרה של התקלה וחוסך החלפה יקרה יותר.
+            </p>
+          </article>
+
+          <article class="tip">
+            <div class="tip-number" aria-hidden="true">06</div>
+            <h3>לגבות מידע באופן קבוע</h3>
+            <p>
+              גם כאשר התקלה נראית קשורה למסך בלבד, תמיד כדאי לשמור גיבוי של קבצים חשובים. מחשב הוא כלי עבודה,
+              והמידע שבו לפעמים חשוב יותר מהרכיב התקול עצמו.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="shipping" class="section" aria-labelledby="shipping-title">
+      <div class="container">
+        <div class="delivery-box">
+          <div>
+            <span class="delivery-pill">שירות איסוף והחזרה</span>
+            <h2 id="shipping-title">תיקון מקצועי גם בלי להגיע פיזית למעבדה</h2>
+          </div>
+          <div>
+            <p>
+              מעבדת מחשבים Repair-Lab מספקת שירות איסוף והחזרה של המוצר התקול מבית הלקוח או העסק.
+              השירות מתאים ללקוחות פרטיים, סטודנטים, בעלי עסקים וארגונים שרוצים לטפל בתקלה בצורה מסודרת
+              מבלי לבזבז זמן מיותר על הגעה, חניה או המתנה.
+            </p>
+            <p>
+              גם כאשר משתמשים בשירות משלוחים, חשוב שהמחשב ייבדק במעבדה מקצועית, עם תיעוד של התקלה,
+              אבחון ברור והסבר לפני ביצוע תיקון. כך ניתן להבין מה קרה, מה אפשר לתקן ומה מומלץ לעשות
+              כדי להפחית סיכון לתקלות חוזרות.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="before-repair-title">
+      <div class="container">
+        <div class="about-layout">
+          <article class="about-card">
+            <h2 id="before-repair-title">מה חשוב לדעת לפני שמוסרים מחשב לתיקון?</h2>
+            <p>
+              לפני שמוסרים מחשב למעבדה, כדאי לוודא שמבצעים אבחון ולא רק החלפה מהירה של חלק. מחשב נייד
+              הוא מערכת צפופה ועדינה: מסך, לוח אם, זיכרון, כונן, סוללה, מקלדת, שקע טעינה ומערכת קירור
+              עובדים יחד. תקלה באחד מהם יכולה להשפיע על רכיבים אחרים, ולכן אבחון מקצועי חוסך טעויות.
+            </p>
+            <p>
+              חשוב לקבל הסבר פשוט: מה התקלה, מה האפשרויות, מה כדאי לתקן ומה לא תמיד משתלם לתקן.
+              במונחים מקצועיים, “רמת הרכיב” פירושה בדיקה של רכיבים קטנים על הלוח האלקטרוני ולא רק
+              החלפת יחידה שלמה. עבור הלקוח, המשמעות היא בדיקה עמוקה יותר ויכולת למצוא פתרונות במקרים
+              שבהם מעבדה רגילה עלולה להציע רק החלפה מלאה.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <h2>שירותים נוספים במעבדה</h2>
+            <p>
+              לצד תחומי התיקון המרכזיים, Repair-Lab מטפלת בעוד מגוון שירותים למחשבים ניידים ונייחים:
+              החלפת מקלדת, החלפת עכבר במחשב נייד, התקנת SSD לשיפור מהירות העבודה, טיפול בתקלות טעינה,
+              החלפת סוללה, ניקוי מערכת קירור, בדיקת התחממות, טיפול בנזקי נוזלים והתקנות תוכנה.
+            </p>
+            <ul class="mini-list">
+              <li>החלפת מקלדת במחשב נייד</li>
+              <li>החלפת משטח עכבר / Touchpad</li>
+              <li>התקנת SSD ושדרוג מהירות</li>
+              <li>בדיקת התחממות וניקוי מערכת קירור</li>
+              <li>טיפול בתקלות טעינה וסוללה</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="facebook-box">
+          <div>
+            <h3>רוצים להכיר את הפעילות של המעבדה גם ברשת?</h3>
+            <p>אפשר לעקוב אחרי עדכונים, עבודות, שירותים ותכנים נוספים בעמוד הפייסבוק של Repair-Lab.</p>
+          </div>
+          <a href="https://www.facebook.com/repair.lab.tlv" title="מעבר לעמוד הפייסבוק של Repair-Lab" target="_blank" rel="noopener noreferrer">עמוד הפייסבוק</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section rating-section" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="rating-card">
+          <aside class="score-box" aria-label="דירוג גוגל של Repair-Lab">
+            <div class="score">4.9</div>
+            <div class="stars" aria-label="חמישה כוכבים">★★★★★</div>
+            <p>
+              ציון גוגל נכון לאפריל 2026: 4.9 מתוך 5, על בסיס כ־420 המלצות.
+              הנתון משקף חוויית שירות, מקצועיות, שקיפות ויחס אישי שהלקוחות מציינים שוב ושוב.
+            </p>
+          </aside>
+
+          <div>
+            <div class="section-title">
+              <span class="eyebrow">לקוחות מספרים</span>
+              <h2 id="reviews-title">המלצות שמדגישות מקצועיות, אמינות ושירות אנושי</h2>
+            </div>
+
+            <div class="reviews-grid">
+              <article class="review">
+                <p>
+                  “שירות מצוין! אבי וליעם סייעו לי בתיקון המחשב. מדובר באנשים הגונים וישרים,
+                  וזה כשלעצמו לא מובן מאליו. טיפלו במחשב במקצועיות, ענו לכל שאלה והכול בסבלנות אין קץ.”
+                </p>
+                <strong>י.ע.</strong>
+              </article>
+
+              <article class="review">
+                <p>
+                  “המלצה חמה מכל הלב על ריפר לאב — מעבדה מקצועית ואמינה. תודה לאבי וליעם שמצאו פתרון
+                  מהיר ויעיל, וכבר ממבט ראשון הרגשתי שאני שקטה להשאיר את המחשב שם.”
+                </p>
+                <strong>מ.ר.</strong>
+              </article>
+
+              <article class="review">
+                <p>
+                  “מקום עם תודעת שירות גבוהה, אנשים נעימים ומחשבה על הלקוח. הסבירו לי בפירוט ובאנושיות
+                  מה בדיוק הייתה התקלה, והגיעו לקראתי גם במחיר.”
+                </p>
+                <strong>ד.ל.</strong>
+              </article>
+
+              <article class="review">
+                <p>
+                  “אני סטודנטית שנשפך לה מים על ה־Mac. הגעתי לחוצה ועזרו לי בכל מה שצריך. היה מהיר,
+                  קיבלתי את המחשב לאחר ייבוש ובדיקה מקיפה, מחיר הוגן ויחס מעולה.”
+                </p>
+                <strong>א.ש.</strong>
+              </article>
+
+              <article class="review">
+                <p>
+                  “שלחתי לפטופ להחלפת סוללה והוא חזר כמו חדש. כל התקשורת עם המעבדה הייתה נוחה מאוד
+                  דרך וואטסאפ. נהניתי מאוד מהשירות ומהביצוע.”
+                </p>
+                <strong>ר.כ.</strong>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Repair-Lab</h3>
+        <p>
+          מעבדת מחשבים מקצועית לתיקון מחשבים ניידים ונייחים, החלפת מסכים, תיקוני חומרה,
+          שדרוגים ואבחון תקלות מורכבות.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>שירותים מרכזיים</h3>
+        <ul>
+          <li>החלפת מסך למחשב נייד</li>
+          <li>תיקון מחשבים ניידים</li>
+          <li>הרחבת זיכרון למחשב</li>
+          <li>החלפת מסך מגע ללפטופ</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>יצירת קשר</h3>
+        <div class="footer-actions">
+          <a class="footer-btn call-btn" href="tel:035405555" title="התקשרות אל Repair-Lab בטלפון 03-5405555">התקשרו: 03-5405555</a>
+          <a class="footer-btn wa-btn" href="https://wa.me/972556872414" title="שליחת הודעת וואטסאפ אל Repair-Lab" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" viewBox="0 0 32 32" width="24" height="24">
+              <path fill="currentColor" d="M16.04 3C8.86 3 3.03 8.74 3.03 15.81c0 2.25.6 4.45 1.73 6.39L3 29l6.98-1.8a13.13 13.13 0 0 0 6.06 1.5c7.18 0 13.01-5.74 13.01-12.81S23.22 3 16.04 3Zm0 23.5c-1.92 0-3.8-.5-5.43-1.45l-.39-.23-4.14 1.07 1.1-4.01-.26-.41a10.5 10.5 0 0 1-1.61-5.66c0-5.84 4.81-10.6 10.73-10.6s10.73 4.76 10.73 10.6-4.81 10.69-10.73 10.69Zm5.88-7.94c-.32-.16-1.9-.93-2.2-1.04-.29-.11-.5-.16-.72.16-.21.32-.82 1.04-1.01 1.25-.19.22-.37.24-.69.08-.32-.16-1.35-.49-2.57-1.57-.95-.84-1.6-1.88-1.78-2.2-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.22.05-.4-.03-.56-.08-.16-.72-1.72-.98-2.36-.26-.61-.52-.53-.72-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.65s1.15 3.07 1.31 3.28c.16.22 2.27 3.43 5.5 4.8.77.33 1.37.53 1.84.68.77.24 1.47.21 2.02.13.62-.09 1.9-.77 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37Z"/>
+            </svg>
+            וואטסאפ: 0556872414
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>שירות ואיסוף</h3>
+        <p>
+          ניתן לתאם שירות איסוף והחזרה של המוצר התקול מבית הלקוח או העסק, בהתאם לאופי התקלה ולתיאום מול המעבדה.
+        </p>
+      </div>
+    </div>
+
+    <div class="privacy">
+      <p>
+        אנו מכבדים את פרטיות המשתמשים באתר זה. דף הנחיתה אינו כולל טפסי השארת פרטים ואינו אוסף מידע אישי באופן ישיר.
+        ייתכן ונעשה שימוש בכלי סטטיסטיקה וניתוח תנועה, כגון cookies, לצורך שיפור חוויית המשתמש.
+      </p>
+      <p>
+        האתר מאוחסן ומופעל באמצעות פלטפורמת github, וייתכן כי נתונים טכניים נאספים בהתאם למדיניות הפלטפורמה.
+        ניתן לעיין במדיניות הפרטיות של github בקישור הבא:
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" title="מדיניות הפרטיות הכללית של GitHub" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות של GitHub</a>.
+      </p>
+    </div>
+
+    <div class="credits">
+      <p>נבנה עם היררכיית כותרות, קישורי עוגן, ALT לתמונות, TITLE לקישורים, גודל טקסט מינימלי של 18px וניגודיות משופרת.</p>
+      <p><a title="נבנה על ידי פרוסייטס" class="" href="https://prosites.co.il/" target="_blank" rel="noopener noreferrer">נבנה על ידי פרוסייטס</a></p>
+    </div>
+  </footer>
+
+  <div class="floating-actions" aria-label="כפתורי יצירת קשר צפים">
+    <a class="float-btn float-call" href="tel:035405555" title="התקשרות אל Repair-Lab" aria-label="התקשרות אל Repair-Lab">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/>
+      </svg>
+    </a>
+
+    <a class="float-btn float-wa" href="https://wa.me/972556872414" title="שליחת הודעת וואטסאפ אל Repair-Lab" target="_blank" rel="noopener noreferrer" aria-label="שליחת הודעת וואטסאפ אל Repair-Lab">
+      <svg aria-hidden="true" viewBox="0 0 32 32" fill="currentColor">
+        <path d="M16.04 3C8.86 3 3.03 8.74 3.03 15.81c0 2.25.6 4.45 1.73 6.39L3 29l6.98-1.8a13.13 13.13 0 0 0 6.06 1.5c7.18 0 13.01-5.74 13.01-12.81S23.22 3 16.04 3Zm0 23.5c-1.92 0-3.8-.5-5.43-1.45l-.39-.23-4.14 1.07 1.1-4.01-.26-.41a10.5 10.5 0 0 1-1.61-5.66c0-5.84 4.81-10.6 10.73-10.6s10.73 4.76 10.73 10.6-4.81 10.69-10.73 10.69Zm5.88-7.94c-.32-.16-1.9-.93-2.2-1.04-.29-.11-.5-.16-.72.16-.21.32-.82 1.04-1.01 1.25-.19.22-.37.24-.69.08-.32-.16-1.35-.49-2.57-1.57-.95-.84-1.6-1.88-1.78-2.2-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.22.05-.4-.03-.56-.08-.16-.72-1.72-.98-2.36-.26-.61-.52-.53-.72-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.65s1.15 3.07 1.31 3.28c.16.22 2.27 3.43 5.5 4.8.77.33 1.37.53 1.84.68.77.24 1.47.21 2.02.13.62-.09 1.9-.77 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37Z"/>
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('#main-navigation');
+
+    navToggle.addEventListener('click', function () {
+      const isOpen = mainNav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('#main-navigation a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mainNav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
