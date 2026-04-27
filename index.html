@@ -149,7 +149,15 @@
     }
 
     .section {
-      padding: 64px 22px;
+      padding: 58px 22px;
+    }
+
+    .section-tight-bottom {
+      padding-bottom: 22px;
+    }
+
+    .section-tight-top {
+      padding-top: 30px;
     }
 
     .container {
@@ -160,12 +168,14 @@
     .hero {
       position: relative;
       overflow: hidden;
-      min-height: 690px;
+      min-height: 620px;
       background:
         radial-gradient(circle at 12% 20%, rgba(56, 189, 248, 0.24), transparent 30%),
         linear-gradient(145deg, #071633 0%, #0f172a 58%, #111827 100%);
       color: var(--white);
-      padding: 82px 22px 58px;
+      padding: 82px 22px 64px;
+      display: flex;
+      align-items: center;
     }
 
     .hero::before {
@@ -173,16 +183,16 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(7, 22, 51, 0.12), rgba(7, 22, 51, 0.92)),
+        linear-gradient(180deg, rgba(7, 22, 51, 0.14), rgba(7, 22, 51, 0.92)),
         url("repair-touch-screen-2.jpg") center / cover no-repeat;
-      opacity: 0.22;
+      opacity: 0.25;
       filter: grayscale(20%);
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      inset: auto -10% -28% -10%;
+      inset: auto -10% -30% -10%;
       height: 300px;
       background: rgba(0, 0, 0, 0.34);
       transform: rotate(-2deg);
@@ -195,6 +205,7 @@
       margin: 0 auto;
       display: grid;
       gap: 28px;
+      width: 100%;
     }
 
     .hero-badge {
@@ -258,42 +269,12 @@
       font-size: 0.98rem;
     }
 
-    .hero-strip {
-      position: relative;
-      z-index: 3;
-      max-width: 1180px;
-      margin: 42px auto 0;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .hero-strip-card {
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: rgba(0, 0, 0, 0.30);
-      border: 1px solid rgba(255,255,255,0.14);
-      min-height: 250px;
-      box-shadow: var(--shadow);
-      margin: 0;
-    }
-
-    .hero-strip-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.88;
-      filter: saturate(0.85) contrast(1.05);
-    }
-
     .intro-panel {
       background: var(--white);
       border-radius: var(--radius);
-      padding: 32px;
+      padding: 30px 32px;
       box-shadow: var(--shadow);
       border: 1px solid var(--line);
-      margin-top: -34px;
       position: relative;
       z-index: 5;
     }
@@ -306,7 +287,7 @@
 
     .section-title {
       max-width: 860px;
-      margin: 0 0 30px;
+      margin: 0 0 26px;
     }
 
     .eyebrow {
@@ -347,30 +328,32 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
+      gap: 24px;
     }
 
     .service-card {
       background: var(--white);
       border: 1px solid var(--line);
-      border-radius: var(--radius);
+      border-radius: 32px;
       box-shadow: 0 16px 50px rgba(15, 23, 42, 0.07);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       position: relative;
       overflow: hidden;
       display: grid;
       grid-template-rows: auto 1fr;
+      padding: 18px;
     }
 
     .service-card::before {
       content: "";
       position: absolute;
       top: 0;
-      right: 0;
-      width: 100%;
+      right: 34px;
+      left: 34px;
       height: 5px;
       background: linear-gradient(90deg, var(--accent), #2563eb);
-      z-index: 2;
+      border-radius: 0 0 999px 999px;
+      z-index: 3;
     }
 
     .service-card:hover {
@@ -378,18 +361,54 @@
       box-shadow: 0 22px 66px rgba(15, 23, 42, 0.13);
     }
 
-    .service-image {
+    .service-image-frame {
       position: relative;
-      height: 245px;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(56, 189, 248, 0.20), transparent 30%),
+        linear-gradient(145deg, #eaf4ff, #f8fafc);
+      border: 1px solid rgba(2, 132, 199, 0.14);
+      border-radius: 26px;
+      padding: 14px;
       overflow: hidden;
-      background: var(--dark);
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .service-image::after {
+    .service-image-frame::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(15,23,42,0.04), rgba(15,23,42,0.28));
+      width: 190px;
+      height: 190px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.16);
+      right: -58px;
+      top: -62px;
+    }
+
+    .service-image-frame::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.07);
+      left: -48px;
+      bottom: -58px;
+    }
+
+    .service-image {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 230px;
+      overflow: hidden;
+      border-radius: 22px;
+      background: var(--dark);
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      margin: 0;
     }
 
     .service-image img {
@@ -397,15 +416,16 @@
       height: 100%;
       object-fit: cover;
       transform: scale(1.02);
-      transition: transform 0.35s ease;
+      transition: transform 0.35s ease, filter 0.35s ease;
     }
 
     .service-card:hover .service-image img {
-      transform: scale(1.07);
+      transform: scale(1.06);
+      filter: contrast(1.04) saturate(1.02);
     }
 
     .service-body {
-      padding: 28px;
+      padding: 24px 8px 8px;
     }
 
     .service-card p {
@@ -417,42 +437,6 @@
       font-weight: 900;
       text-decoration-thickness: 2px;
       text-underline-offset: 5px;
-    }
-
-    .image-band {
-      background: var(--dark);
-      color: var(--white);
-      padding: 62px 22px;
-    }
-
-    .image-band h2 {
-      color: var(--white);
-    }
-
-    .image-band p {
-      color: rgba(255,255,255,0.78);
-    }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .image-card {
-      overflow: hidden;
-      border-radius: var(--radius);
-      min-height: 300px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      margin: 0;
-    }
-
-    .image-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
 
     .tips {
@@ -571,8 +555,9 @@
       margin-bottom: 26px;
     }
 
-    .extra-services-header p {
+    .extra-services-copy {
       color: var(--muted);
+      margin: 40px 0 0;
     }
 
     .extra-grid {
@@ -851,8 +836,6 @@
       .footer-grid,
       .rating-card,
       .delivery-box,
-      .hero-strip,
-      .image-grid,
       .extra-services-header,
       .extra-grid {
         grid-template-columns: 1fr;
@@ -867,7 +850,7 @@
         padding-top: 70px;
       }
 
-      .intro-panel {
+      .extra-services-copy {
         margin-top: 0;
       }
     }
@@ -878,7 +861,15 @@
       }
 
       .section {
-        padding: 54px 18px;
+        padding: 50px 18px;
+      }
+
+      .section-tight-bottom {
+        padding-bottom: 18px;
+      }
+
+      .section-tight-top {
+        padding-top: 24px;
       }
 
       .header-inner {
@@ -897,8 +888,17 @@
         padding: 24px;
       }
 
+      .service-card {
+        padding: 14px;
+      }
+
+      .service-image-frame {
+        min-height: 230px;
+        padding: 12px;
+      }
+
       .service-image {
-        height: 215px;
+        height: 205px;
       }
 
       .facebook-box {
@@ -971,18 +971,9 @@
           </article>
         </div>
       </div>
-
-      <div class="hero-strip" aria-label="תמונות מעבדה ומחשבים">
-        <figure class="hero-strip-card">
-          <img src="Replacement-screen-for-DELL-laptop.jpg" alt="החלפת מסך למחשב נייד במעבדה מקצועית" loading="eager">
-        </figure>
-        <figure class="hero-strip-card">
-          <img src="Dark-screen-on-laptop.jpg" alt="מחשב נייד על שולחן עבודה לפני בדיקת תקלה במסך" loading="eager">
-        </figure>
-      </div>
     </section>
 
-    <section id="about" class="section" aria-labelledby="about-title">
+    <section id="about" class="section section-tight-bottom" aria-labelledby="about-title">
       <div class="container">
         <div class="intro-panel">
           <p>
@@ -995,7 +986,7 @@
       </div>
     </section>
 
-    <section id="services" class="section" aria-labelledby="services-title">
+    <section id="services" class="section section-tight-top" aria-labelledby="services-title">
       <div class="container">
         <div class="section-title">
           <span class="eyebrow">השירותים שלנו</span>
@@ -1004,9 +995,11 @@
 
         <div class="services-grid">
           <article class="service-card">
-            <figure class="service-image">
-              <img src="Replacement-screen-for-DELL-laptop.jpg" alt="החלפת מסך למחשב נייד מסוג Dell במעבדת מחשבים" loading="lazy">
-            </figure>
+            <div class="service-image-frame">
+              <figure class="service-image">
+                <img src="Replacement-screen-for-DELL-laptop.jpg" alt="החלפת מסך למחשב נייד מסוג Dell במעבדת מחשבים" loading="lazy">
+              </figure>
+            </div>
             <div class="service-body">
               <h3>החלפת מסך למחשב נייד</h3>
               <p>
@@ -1023,9 +1016,11 @@
           </article>
 
           <article class="service-card">
-            <figure class="service-image">
-              <img src="Dark-screen-on-laptop.jpg" alt="מחשב נייד עם מסך כהה לפני אבחון תקלה" loading="lazy">
-            </figure>
+            <div class="service-image-frame">
+              <figure class="service-image">
+                <img src="Dark-screen-on-laptop.jpg" alt="מחשב נייד עם מסך כהה לפני אבחון תקלה" loading="lazy">
+              </figure>
+            </div>
             <div class="service-body">
               <h3>תיקון מחשבים ניידים שלא נדלקים או נתקעים</h3>
               <p>
@@ -1041,9 +1036,11 @@
           </article>
 
           <article class="service-card">
-            <figure class="service-image">
-              <img src="ChatGPT27.4.26 זכרון.jpg" alt="הרחבת זיכרון RAM למחשב נייד במעבדת מחשבים" loading="lazy">
-            </figure>
+            <div class="service-image-frame">
+              <figure class="service-image">
+                <img src="ChatGPT27.4.26 זכרון.jpg" alt="הרחבת זיכרון RAM למחשב נייד במעבדת מחשבים" loading="lazy">
+              </figure>
+            </div>
             <div class="service-body">
               <h3>הרחבת זיכרון למחשב נייד</h3>
               <p>
@@ -1059,9 +1056,11 @@
           </article>
 
           <article class="service-card">
-            <figure class="service-image">
-              <img src="repair-touch-screen-2.jpg" alt="תיקון והחלפת מסך מגע ללפטופ במעבדת מחשבים" loading="lazy">
-            </figure>
+            <div class="service-image-frame">
+              <figure class="service-image">
+                <img src="repair-touch-screen-2.jpg" alt="תיקון והחלפת מסך מגע ללפטופ במעבדת מחשבים" loading="lazy">
+              </figure>
+            </div>
             <div class="service-body">
               <h3>החלפת מסך מגע ללפטופ</h3>
               <p>
@@ -1074,29 +1073,6 @@
               </p>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="image-band" aria-labelledby="lab-title">
-      <div class="container">
-        <div class="section-title">
-          <span class="eyebrow">מעבדה, ציוד וידע מקצועי</span>
-          <h2 id="lab-title">תיקון נכון מתחיל באבחון נכון</h2>
-          <p>
-            במחשבים ניידים, תקלה אחת יכולה להיראות כמו תקלה אחרת. מסך שחור יכול להיות קשור למסך, לכבל פנימי,
-            לכרטיס גרפי או למערכת ההפעלה. מחשב איטי יכול להיות קשור לזיכרון, לכונן אחסון, להתחממות או לתוכנות שרצות ברקע.
-            לכן אנחנו שמים דגש על בדיקה מסודרת לפני בחירת דרך הטיפול.
-          </p>
-        </div>
-
-        <div class="image-grid">
-          <figure class="image-card">
-            <img src="from web client27.4.26 repair-lab.jpeg" alt="עמדת עבודה במעבדת מחשבים מקצועית Repair-Lab" loading="lazy">
-          </figure>
-          <figure class="image-card">
-            <img src="repair-touch-screen-2.jpg" alt="תיקון מסך מגע ולוח אלקטרוני של מחשב נייד" loading="lazy">
-          </figure>
         </div>
       </div>
     </section>
@@ -1181,16 +1157,16 @@
               </svg>
             </div>
             <span class="delivery-pill">שירות איסוף והחזרה</span>
-            <h2 id="shipping-title">שולחים את המחשב התקול לבדיקה מקצועית — ומקבלים אותו בחזרה מסודר</h2>
+            <h2 id="shipping-title">המחשב התקול נאסף אל המעבדה, נבדק מקצועית ומוחזר לאחר טיפול</h2>
           </div>
           <div>
             <p>
               Repair-Lab מאפשרת לתאם איסוף והחזרה של מחשב תקול מבית הלקוח או מבית העסק. השירות מתאים ללקוחות פרטיים,
-              סטודנטים, בעלי עסקים וארגונים שמעדיפים להעביר את המחשב למעבדה בצורה נוחה, מסודרת ובתיאום מראש.
+              סטודנטים, בעלי עסקים וארגונים שמעוניינים להעביר את המחשב למעבדה בצורה מסודרת, נוחה ומתואמת מראש.
             </p>
             <p>
-              לאחר קבלת המחשב במעבדה, אנחנו מבצעים בדיקה מקצועית, מזהים את מקור התקלה ומעדכנים את הלקוח באפשרויות הטיפול.
-              כך ניתן ליהנות משירות מעבדה מקצועי גם כאשר נוח יותר לבצע את התהליך באמצעות איסוף והחזרה.
+              לאחר הגעת המחשב למעבדה, אנחנו מבצעים בדיקה מקצועית, מזהים את מקור התקלה ומעדכנים את הלקוח באפשרויות הטיפול.
+              השירות מאפשר לקבל מענה מעבדתי מקצועי גם כאשר תהליך האיסוף וההחזרה מתאים יותר לצורכי הלקוח.
             </p>
           </div>
         </div>
@@ -1205,7 +1181,7 @@
               <span class="eyebrow">עוד שירותים במעבדה</span>
               <h2 id="extra-services-title">מענה רחב למחשבים ניידים ונייחים</h2>
             </div>
-            <p>
+            <p class="extra-services-copy">
               לצד השירותים המרכזיים, אנחנו מטפלים במגוון תקלות ושדרוגים למחשבים ניידים ונייחים. בכל פנייה אנחנו בודקים
               את דגם המחשב, אופי התקלה והשימוש בפועל, ובהתאם לכך מתאימים את דרך הטיפול הנכונה.
             </p>
